@@ -1,0 +1,195 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    min-height: 100%;
+    color: #555;
+    width:  600px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+h1{
+    text-align: center;
+    color:  #888;
+}
+
+.notes{
+    padding: 20px;
+}
+
+.notes p{
+    border-bottom: thin dotted #d4d4d4;
+    padding: 20px 10px 0px 0px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.notes p span{
+    font-size: 16px;
+    float:  right;
+    cursor: pointer;
+    display: inline-block;
+}
+.notes p span.mark{
+    color: green;
+    font-size: 30px;
+    transform: translateY(-10px);
+}
+
+form{
+    width:  100%;
+}
+
+.field{
+    margin-bottom: 10px;
+    display: flex;
+    transition: opacity 0.3s;
+}
+
+.field input{
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    border: thin solid #d4d4d4;
+    font-size: 20px;
+    color: #888;
+    font-family: ubuntu, sans-serif;
+    background-color: #f9f9f9;
+}
+.field input:focus{
+    outline: none;
+}
+
+.field span{
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    padding: 10px;
+    font-size: 20px;
+    transition: all 0.3s;
+    font-weight: bold;
+    border: thin solid #d4d4d4;
+}
+.field span:last-child{
+    display: none;
+    padding: 12px;
+}
+.field span:hover{
+    background-color: green;
+    border: thin solid green;
+    color: #fff;
+}
+.field span:last-child:hover{
+    background-color: red;
+    border: thin solid red;
+    color: #fff;
+}
+
+
+button{
+    display: block;
+    padding: 10px 20px;
+    margin-top: 30px;
+    width:  150px;
+    float: left;
+    font-size: 16px;
+    background-color: #5b8ebf;
+    border: thin solid #d5e4d4;
+    cursor: pointer;
+    color: #fff;
+}
+
+button:active{
+    background-color: #aedea6;
+    color: #000;
+}
+
+.reset{
+    float: right;
+    background-color: green;
+}
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*body{*/
+/*    width: 100%;*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);*/
+/*}*/
+/*.container{*/
+/*    max-width: 600px;*/
+/*    background: #fff;*/
+/*    border-radius: 5px;*/
+/*    width: 600px;*/
+/*    padding: 20px;*/
+/*    box-shadow: 0 2px 2px 3px rgba(0,0,0,0.1);*/
+/*}*/
+/*.wrap{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*    margin-bottom: 40px;*/
+/*    padding-bottom: 15px;*/
+/*    border-bottom: 2px solid #e4e1e1;*/
+/*}*/
+/*.add{*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    background: #8bc34a;*/
+/*    font-size: 2rem;*/
+/*    font-weight: bold;*/
+/*    color: #fff;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.flex{*/
+/*    display: flex;*/
+/*    gap: 1.5em;*/
+/*    margin-bottom: 15px;*/
+/*}*/
+/*.delete{*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    background: #f44336;*/
+/*    color: #fff;*/
+/*    font-size: 1.5rem;*/
+/*    font-weight: bold;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    color: #fff;*/
+/*    margin-left: auto;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*input{*/
+/*    padding: 8px 10px;*/
+/*    background: #ddd;*/
+/*    border: none;*/
+/*    width: 50%;*/
+/*    border-radius: 5px;*/
+/*}*/
+/*input:focus{*/
+/*    outline: 1px solid #efefef;*/
+/*}*/
+/*.inp-group{*/
+/*    margin-bottom: 20px;*/
+/*}*/

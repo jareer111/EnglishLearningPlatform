@@ -1,0 +1,41 @@
+h1 {
+    margin: 0;
+    padding: 48px;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+    background-color: #2196f3;
+}
+
+section {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1200px;
+    background-color: white;
+}
+
+
+.input,
+.output {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 320px;
+    margin: 0 16px;
+}
+
+label {
+    margin: 24px 0 0;
+}
+
+textarea {
+    resize: horizontal;
+}
+
+
+#pdf_container {
+    text-align: center;
+    display: flex;
+    padding: 5px;
+    overflow: auto
+}

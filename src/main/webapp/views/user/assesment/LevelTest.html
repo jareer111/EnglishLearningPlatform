@@ -1,0 +1,454 @@
+<html lang="en">
+<head>
+    <title>LevelTest</title>
+
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #b8c6db;
+        background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7f7 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .quiz-container {
+        background-color: #fff;
+        box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+        width: 600px;
+        overflow: hidden;
+        text-decoration-color: black;
+    }
+
+    .quiz-header {
+        padding: 4rem;
+    }
+
+    h2 {
+        padding: 1rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+
+    ul li label {
+        cursor: pointer;
+    }
+
+    button {
+        background-color: #03cae4;
+        color: #fff;
+        border: none;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-family: inherit;
+        padding: 1.3rem;
+    }
+
+    button:hover {
+        background-color: #04adc4;
+    }
+
+    button:focus {
+        outline: none;
+        background-color: #44b927;
+    }
+</style>
+<body id="body">
+<div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+        <h2 id="question">Question Text </h2>
+        <ul>
+            <li>
+                <input type="radio" name="answer" id="a" class="answer">
+                <label for="a" id="a_text">Answer</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" id="b" class="answer">
+                <label for="b" id="b_text">Answer</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" id="c" class="answer">
+                <label for="c" id="c_text">Answer</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" id="d" class="answer">
+                <label for="d" id="d_text">Answer</label>
+            </li>
+        </ul>
+    </div>
+    <button id="submit">Submit</button>
+</div>
+
+
+<script href="/views/user/assesment/LevelTestedit.js"></script>
+<script>
+    const quizData = [
+        {
+            question: "Which of the following is a verb?",
+            a: "Car",
+            b: "Run",
+            c: "Desk",
+            d: "Red",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is a pronoun?",
+            a: "House",
+            b: "They",
+            c: "Book",
+            d: "Jump",
+            correct: "b",
+        },
+        {
+            question: "Which sentence is grammatically correct?",
+            a: "Me and him went to the store.",
+            b: "He and I went to the store.",
+            c: "Him and me went to the store.",
+            d: "Me and he went to the store.",
+            correct: "b",
+        }
+        ,
+        {
+            question: "Which of the following is a preposition?",
+            a: "Run",
+            b: "With",
+            c: "Desk",
+            d: "Blue",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is an adverb?",
+            a: "Fast",
+            b: "House",
+            c: "Table",
+            d: "Walk",
+            correct: "a",
+        },
+        {
+            question: "Which of the following is an adjective?",
+            a: "Quick",
+            b: "Blue",
+            c: "Jump",
+            d: "He",
+            correct: "b",
+        },
+        {
+            question: "Choose the correct form of the verb 'to be' for the sentence: 'They _________ happy.'",
+            a: "Is",
+            b: "Are",
+            c: "Am",
+            d: "Be",
+            correct: "b",
+        },
+        {
+            question: "Which sentence is grammatically correct?",
+            a: "I don't have no money.",
+            b: "I don't have any money.",
+            c: "I don't have some money.",
+            d: "I don't have much money.",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is a conjunction?",
+            a: "Jump",
+            b: "Or",
+            c: "House",
+            d: "Fast",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is an noun?",
+            a: "Accordance",
+            b: "Beautifully",
+            c: "To",
+            d: "In",
+            correct: "a",
+        },
+        {
+            question: "Choose the correct form of the verb 'to be' for the sentence: 'She _________ my friend.'",
+            a: "Is",
+            b: "Are",
+            c: "Am",
+            d: "Be",
+            correct: "a",
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'I _________ to the store yesterday.'",
+            a: "Go",
+            b: "Goes",
+            c: "Went",
+            d: "Going",
+            correct: "c",
+        }, {
+            question: "Choose the correct pronoun to complete the sentence: 'Messi __________ the GOAT.'",
+            a: "is",
+            b: "is not",
+            c: "are",
+            d: "am",
+            correct: "a",
+        },
+        {
+            question: "Which of the following is an adjective?",
+            a: "Quick",
+            b: "Beautifully",
+            c: "To",
+            d: "In",
+            correct: "a",
+        },
+        {
+            question: "Which of the following is an adverb?",
+            a: "Loud",
+            b: "Quickly",
+            c: "Table",
+            d: "Walk",
+            correct: "b",
+        },
+        {
+            question: "Choose the correct form of the verb 'to complete the sentence: 'He _________ a book when I saw him.'",
+            a: "Read",
+            b: "was reading",
+            c: "Reads",
+            d: "To read",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is a conjunction?",
+            a: "And",
+            b: "Green",
+            c: "Car",
+            d: "Happy",
+            correct: "a",
+        },
+        {
+            question: "Which sentence is grammatically correct?",
+            a: "I don't have no friends.",
+            b: "I don't have any friends.",
+            c: "I don't have some friends.",
+            d: "I don't have much friends.",
+            correct: "b",
+        },
+        {
+            question: "Which of the following is a noun?",
+            a: "Dancing",
+            b: "Happily",
+            c: "Continue",
+            d: "Occupation",
+            correct: "Occupation"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'I always __________ coffee with breakfast.'",
+            a: "drink",
+            b: "drank",
+            c: "drunk",
+            d: "drinking",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'Julia didn't come to the party, __________?'",
+            a: "did she",
+            b: "didn't she",
+            c: "does she",
+            d: "doesn't she",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'My sister __________ a lot of books.'",
+            a: "reads",
+            b: "read",
+            c: "reading",
+            d: "has read",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'I have been working on this project __________ days.'",
+            a: "since 10",
+            b: "for 10",
+            c: "before 10",
+            d: "after 10",
+            correct: "b"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'Can you __________ me the salt, please?'",
+            a: "pass",
+            b: "take",
+            c: "bring",
+            d: "give",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'Tom is __________ in playing the piano.'",
+            a: "interested",
+            b: "interesting",
+            c: "interest",
+            d: "interests",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'She has a __________ job that pays well.'",
+            a: "satisfy",
+            b: "satisfied",
+            c: "satisfying",
+            d: "satisfaction",
+            correct: "c"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'I __________ my homework last night.'",
+            a: "do",
+            b: "have done",
+            c: "does",
+            d: "did",
+            correct: "d"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'The library is __________ to the public.'",
+            a: "open",
+            b: "opened",
+            c: "opening",
+            d: "opens",
+            correct: "a"
+        },
+        {
+            question: "Choose the correct option to complete the sentence: 'I don't know __________ you are talking about.'",
+            a: "that",
+            b: "what",
+            c: "which",
+            d: "who",
+            correct: "b"
+        },
+        {
+            question: "What is the meaning of 'a stone's throw' in the following sentence: 'The beach is a stone's throw away from here.'",
+            a: "A long distance",
+            b: "A short distance",
+            c: "100 mile distance",
+            d: "A medium distance",
+            correct: "b"
+        }
+    ]
+
+
+    const quiz = document.getElementById('quiz')
+    const answerEls = document.querySelectorAll('.answer')
+    const questionEl = document.getElementById('question')
+    const a_text = document.getElementById('a_text')
+    const b_text = document.getElementById('b_text')
+    const c_text = document.getElementById('c_text')
+    const d_text = document.getElementById('d_text')
+    const submitBtn = document.getElementById('submit')
+    const body = document.getElementById('body')
+    let currentQuiz = 0
+    let score = 0
+
+    loadQuiz()
+
+    function loadQuiz() {
+        deselectAnswers()
+        const currentQuizData = quizData[currentQuiz]
+        questionEl.innerText = currentQuizData.question
+        a_text.innerText = currentQuizData.a
+        b_text.innerText = currentQuizData.b
+        c_text.innerText = currentQuizData.c
+        d_text.innerText = currentQuizData.d
+    }
+
+    function deselectAnswers() {
+        answerEls.forEach(answerEl => answerEl.checked = false)
+    }
+
+    function getSelected() {
+        let answer
+        answerEls.forEach(answerEl => {
+            if (answerEl.checked) {
+                answer = answerEl.id
+
+            }
+        })
+
+        return answer
+    }
+
+    submitBtn.addEventListener('click', () => {
+        const answer = getSelected()
+        if (answer) {
+            if (answer === quizData[currentQuiz].correct) {
+                console.log(answer)
+                console.log(quizData[currentQuiz].correct)
+                score++
+            }
+            currentQuiz++
+            if (currentQuiz < quizData.length) {
+                loadQuiz()
+            } else {
+
+                fetch('http://10.10.4.22:8080/assessment', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify({score})
+                })
+
+                quiz.innerHTML = `
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2>`
+
+                if (score <= 5) {
+                    quiz.innerHTML += `
+                        <h2>Your level is BEGINNER</h2>
+                    `
+                } else if (score <= 9) {
+                    quiz.innerHTML += `
+                        <h2>Your level is ELEMENTARY</h2>
+                    `
+                } else if (score <= 14) {
+                    quiz.innerHTML += `
+                        <h2>Your level is PRE_INTERMEDIATE</h2>
+                    `
+                } else if (score <= 18) {
+                    quiz.innerHTML += `
+                        <h2>Your level is INTERMEDIATE</h2>
+                    `
+                } else if (score <= 23) {
+                    quiz.innerHTML += `
+                        <h2>Your level is UPPER_INTERMEDIATE</h2>
+                    `
+                }else if (score <= 26) {
+                    quiz.innerHTML += `
+                        <h2>Your level is ADVANCED</h2>
+                    `
+
+                } else {
+                    quiz.innerHTML += `
+                        <h2>Your level is PROFICIENT</h2>
+                    `
+            }
+                quiz.innerHTML += `
+                        <button type="submit"><a href="/user">Home</a></button>
+                    `
+            }
+        }
+    })
+</script>
+</body>
+
+</html>
