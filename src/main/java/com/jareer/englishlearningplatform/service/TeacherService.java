@@ -5,14 +5,10 @@ import com.jareer.englishlearningplatform.domains.*;
 import com.jareer.englishlearningplatform.utils.validator.GrammarValidator;
 import com.jareer.englishlearningplatform.utils.validator.QuestionValidator;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.List;
-import java.util.logging.Handler;
-
-import static java.lang.ThreadLocal.withInitial;
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class TeacherService {

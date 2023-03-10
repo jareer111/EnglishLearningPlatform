@@ -1,7 +1,10 @@
 package com.jareer.englishlearningplatform.dao;
 
 import com.jareer.englishlearningplatform.domains.newStructure.BaseEntity;
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

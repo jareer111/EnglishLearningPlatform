@@ -20,13 +20,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 @WebServlet(name = "StoryAddServlet", value = "/teacher/story/add")
-@MultipartConfig(location = "c:\\E-Learn\\uploads\\stories")
+@MultipartConfig(location = "/home/javohir/apps/elearn/upload/")
 public class StoryAddServlet extends HttpServlet {
     public static final String projectPath = System.getProperty("user.dir");
-    private static final Path rootPath = Path.of(System.getProperty("user.home"), "/E-Learn/uploads/stories");
+    private static final Path rootPath = Path.of("/home/javohir/apps/elearn/upload/");
 
     @Override
     public void init() throws ServletException {

@@ -314,5 +314,4 @@ function update(student_id) {
                 $('#mc_embed_signup').find('form').ajaxChimp();
             });
 
-        }
-    );
+        });

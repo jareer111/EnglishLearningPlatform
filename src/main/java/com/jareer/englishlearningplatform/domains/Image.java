@@ -2,6 +2,7 @@ package com.jareer.englishlearningplatform.domains;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity

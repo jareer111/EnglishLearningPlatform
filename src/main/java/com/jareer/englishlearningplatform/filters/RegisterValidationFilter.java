@@ -1,7 +1,6 @@
 package com.jareer.englishlearningplatform.filters;
 
 import com.jareer.englishlearningplatform.utils.validator.UserValidator;
-import jakarta.persistence.ManyToOne;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;

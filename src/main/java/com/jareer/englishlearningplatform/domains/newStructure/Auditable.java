@@ -1,9 +1,10 @@
   package com.jareer.englishlearningplatform.domains.newStructure;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+  import jakarta.persistence.Column;
+  import jakarta.persistence.Embeddable;
+  import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+  import java.time.LocalDateTime;
 
 
 @Embeddable

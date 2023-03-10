@@ -4,9 +4,11 @@ import com.jareer.englishlearningplatform.domains.Grammar;
 import com.jareer.englishlearningplatform.domains.Questions;
 import com.jareer.englishlearningplatform.domains.Variants;
 import com.jareer.englishlearningplatform.service.TeacherService;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.Objects;

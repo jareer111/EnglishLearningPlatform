@@ -2,7 +2,7 @@ package com.jareer.englishlearningplatform.filters;
 
 import com.jareer.englishlearningplatform.utils.validator.UserValidator;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 

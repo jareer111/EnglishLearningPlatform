@@ -7,9 +7,13 @@ import com.jareer.englishlearningplatform.domains.Questions;
 import com.jareer.englishlearningplatform.domains.Variants;
 import com.jareer.englishlearningplatform.enums.Levels;
 import com.jareer.englishlearningplatform.service.TeacherService;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,10 +22,10 @@ import java.util.List;
 import java.util.UUID;
 
 @WebServlet(name = "GrammarAddServlet", value = "/teacher/grammar/add")
-@MultipartConfig(location = "c:\\E-Learn\\uploads\\grammars")
+@MultipartConfig(location = "/home/javohir/apps/elearn/upload/")
 public class GrammarAddServlet extends HttpServlet {
     public static final String projectPath = System.getProperty("user.dir");
-    private static final Path rootPath = Path.of(System.getProperty("user.home"), "/E-Learn/uploads/grammars");
+    private static final Path rootPath = Path.of("/home/javohir/apps/elearn/upload/");
 
     @Override
     public void init() throws ServletException {

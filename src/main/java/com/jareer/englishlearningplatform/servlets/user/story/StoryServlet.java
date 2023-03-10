@@ -1,6 +1,9 @@
 package com.jareer.englishlearningplatform.servlets.user.story;
 
-import com.jareer.englishlearningplatform.dao.*;
+import com.jareer.englishlearningplatform.dao.DocumentDAO;
+import com.jareer.englishlearningplatform.dao.UserDAO;
+import com.jareer.englishlearningplatform.dao.UserStoryDAO;
+import com.jareer.englishlearningplatform.dao.VocabularyDAO;
 import com.jareer.englishlearningplatform.domains.*;
 import com.jareer.englishlearningplatform.enums.Levels;
 import com.jareer.englishlearningplatform.service.TeacherService;
