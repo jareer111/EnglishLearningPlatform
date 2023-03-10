@@ -32,7 +32,6 @@ public class StoryServlet extends HttpServlet {
             Long userId = Long.parseLong(String.valueOf(session.getAttribute("user_id")));
             Users byIdUser = userService.findById(userId);
             Levels userLevel = byIdUser.getLevel();
-            System.out.println(userId + "----" + userLevel.name());
             Story storyWithOption = teacherService.getStoryWithOption(userLevel.name(), userId);
             if (Objects.isNull(storyWithOption)) storyWithOption = teacherService.getStoryById(2);
             List<Vocabulary> allByVocabulary = teacherService.getVocabulariesByStoryId(storyWithOption);

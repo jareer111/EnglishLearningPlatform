@@ -108,7 +108,7 @@ public class StoryDAO extends BaseDAO<Story, Integer> {
     }
 
     public List<Story> getStoryListByUserLevel(Long id) {
-        List<Story> stories;
+        List<Story> stories=null;
         try (EntityManager em = emf.createEntityManager()) {
             Users user = new UserDAO().findById(id);
             if (user == null) {
@@ -116,9 +116,11 @@ public class StoryDAO extends BaseDAO<Story, Integer> {
             }
 
             stories = em.createNativeQuery(
-                            "select * from story s where s.level = :level and s.id not in (select story_id from user_story where user_id = :userId and is_saved = true);", Story.class)
+                    "select * from story s where s.level = :level and s.id not in (select story_id from user_story where user_id = :userId and is_saved = true);", Story.class)
                     .setParameter("level", user.getLevel().name())
                     .setParameter("userId", id).getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return stories;
     }

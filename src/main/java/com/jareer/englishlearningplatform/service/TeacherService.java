@@ -151,7 +151,8 @@ public class TeacherService {
         return gram;
     }
 
-    public Grammar getGrammarWithOption(@NonNull String userLevel ) {
+    public Grammar getGrammarWithOption(@NonNull String userLevel) {
+
         GrammarDAO grammarDAO = new GrammarDAO();
         Grammar gram = null;
         try {

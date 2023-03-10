@@ -3,6 +3,7 @@ package com.jareer.englishlearningplatform.dao;
 import com.jareer.englishlearningplatform.domains.Grammar;
 import com.jareer.englishlearningplatform.domains.Users;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 import java.util.ArrayList;
@@ -53,19 +54,24 @@ public class GrammarDAO extends BaseDAO<Grammar, Integer> {
         return grammar;
     }
 
-    public List<Grammar> getGrammarListByUserLevel(long id) {
+    public List<Grammar> getGrammarListByUserLevel(Long id) {
+
+        List<Grammar> grammars = null;
+        try (EntityManager em = emf.createEntityManager()) {
         Users user = new UserDAO().findById(id);
         if (user == null) {
             return new ArrayList<>();
         }
-
-        List<Grammar> query;
-        try (EntityManager em = emf.createEntityManager()) {
-            query = em.createNativeQuery(
-                            "select * from grammar s where s.level = :level and s.id not in (select grammar_id from user_story where user_id = :userId);", Grammar.class)
+            grammars =  em.createNativeQuery(
+                    "select * from grammar s where s.level = :level and s.id not in (select grammar_id from user_story where user_id = :userId);", Grammar.class)
                     .setParameter("level", user.getLevel().name())
                     .setParameter("userId", id).getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return query;
+        System.out.println(grammars.size());
+        return grammars;
     }
+
+
 }

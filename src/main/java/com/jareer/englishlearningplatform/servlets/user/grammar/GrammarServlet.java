@@ -26,7 +26,7 @@ public class GrammarServlet extends HttpServlet {
         UserService userService = UserService.getInstance();
         try {
             Long userId = Long.parseLong(String.valueOf(session.getAttribute("user_id")));
-            Users byIdUser = userService.findById(Long.valueOf(userId));
+            Users byIdUser = userService.findById(userId);
             Levels userLevel = byIdUser.getLevel();
             Grammar grammarWithOption = teacherService.getGrammarWithOption(userLevel.name());
             request.setAttribute("userId", userId);
