@@ -14,7 +14,7 @@ import java.util.List;
 
 @Log
 @WebFilter(filterName = "StoryFilter", urlPatterns = {"/teacher/grammar/add-question/*"})
-@MultipartConfig
+@MultipartConfig(location = "/home/javohir/apps/elearn/upload/")
 public class QuestionFilter implements Filter {
 
     @Override
