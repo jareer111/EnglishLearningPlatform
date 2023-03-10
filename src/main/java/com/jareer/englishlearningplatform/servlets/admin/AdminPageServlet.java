@@ -15,7 +15,8 @@ import java.util.List;
 public class AdminPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Users> users = AdminService.getInstance().usersList(1, Integer.MAX_VALUE);
+        Integer userId = Integer.valueOf(request.getSession().getAttribute("user_id").toString());
+        List<Users> users = AdminService.getInstance().usersList(userId,1, Integer.MAX_VALUE);
         request.setAttribute("users", users);
 
         request.getRequestDispatcher("/views/adminview/jsp/adminpage.jsp").forward(request, response);

@@ -21,10 +21,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 @WebServlet(name = "ServletStoryUpdateServlet", value = "/teacher/story/update/*")
-@MultipartConfig(location = "c:\\E-Learn\\uploads\\stories")
+@MultipartConfig(location = "/home/javohir/apps/elearn/upload/")
 public class StoryUpdateServlet extends HttpServlet {
 
-    private static final Path rootPath = Path.of(System.getProperty("user.home"), "/E-Learn/uploads/stories");
+    private static final Path rootPath = Path.of("/home/javohir/apps/elearn/upload/");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

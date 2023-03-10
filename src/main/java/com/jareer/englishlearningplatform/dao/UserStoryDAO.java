@@ -17,17 +17,21 @@ public class UserStoryDAO extends BaseDAO<User_Story, Integer> {
                     .setParameter("story_id", storyId)
                     .getSingleResult();
             if (Objects.isNull(user_story)) return false;
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return true;
     }
 
 
     public List<Integer> getStoriesByUserId(Integer userId) {
-        List<Integer> storyIds;
+        List<Integer> storyIds=null;
         try (EntityManager em = emf.createEntityManager()) {
             storyIds = em.createNativeQuery("select story_id from user_story where user_id = :userId", Integer.class)
                     .setParameter("userId", userId)
                     .getResultList();
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return storyIds;
     }

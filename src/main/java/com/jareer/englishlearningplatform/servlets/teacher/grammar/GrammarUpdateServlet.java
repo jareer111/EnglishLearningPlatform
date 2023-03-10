@@ -20,9 +20,9 @@ import java.util.Objects;
 import java.util.UUID;
 
 @WebServlet(name = "GrammarUpdateServlet", value = "/teacher/grammar/update/*")
-@MultipartConfig(location = "c:\\E-Learn\\uploads\\grammars")
+@MultipartConfig(location = "/home/javohir/apps/elearn/upload/")
 public class GrammarUpdateServlet extends HttpServlet {
-    private static final Path rootPath = Path.of(System.getProperty("user.home"), "/E-Learn/uploads/grammars");
+    private static final Path rootPath = Path.of("/home/javohir/apps/elearn/upload/");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

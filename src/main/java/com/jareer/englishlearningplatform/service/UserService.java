@@ -74,7 +74,17 @@ public class UserService {
         instance.update(user);
         response.sendRedirect("/logout");
     }
-
+    public List<Grammar> getGrammarListByUserLevel(String userId) {
+        List<Grammar> grammars = new ArrayList<>();
+        try{
+            long id = Long.parseLong(userId);
+            GrammarDAO grammarDAO = new GrammarDAO();
+            grammars = grammarDAO.getGrammarListByUserLevel(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return grammars;
+    }
     public List<Story> getStoryListByUserLevel(String userId) {
 
 //        int id;
@@ -161,17 +171,7 @@ public class UserService {
         return user;
     }
 
-    public List<Grammar> getGrammarListByUserLevel(String userId) {
-        List<Grammar> grammars = new ArrayList<>();
-        try{
-            long id = Long.parseLong(userId);
-            GrammarDAO grammarDAO = new GrammarDAO();
-            grammars = grammarDAO.getGrammarListByUserLevel(id);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return grammars;
-    }
+
 
     public boolean update( Users user ) {
         UserDAO userDAO = new UserDAO();

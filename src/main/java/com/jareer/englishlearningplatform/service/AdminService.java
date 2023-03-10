@@ -15,9 +15,9 @@ public class AdminService {
         return service;
     }
 
-    public  List<Users> usersList(Integer page, Integer size) {
+    public  List<Users> usersList(Integer userId,Integer page, Integer size) {
         // todo check page and size
-        List<Users> users = new UserDAO().getPage(page, size);
+        List<Users> users = new UserDAO().getPage(userId,page, size);
         return users;
     }
 

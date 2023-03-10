@@ -29,6 +29,7 @@ public class SecurityFilter implements Filter {
             "/questions/.+",
             "/vocabulary/.+",
             "/uploads/.+"
+
     );
     private static final Predicate<String> IS_ALLOWED_PATH = path -> ALLOWED_PATHS.stream().anyMatch(path::matches);
 

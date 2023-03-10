@@ -63,7 +63,7 @@ public class GrammarDAO extends BaseDAO<Grammar, Integer> {
             return new ArrayList<>();
         }
             grammars =  em.createNativeQuery(
-                    "select * from grammar s where s.level = :level and s.id not in (select grammar_id from user_story where user_id = :userId);", Grammar.class)
+                    "select * from grammar s where s.level = :level and s.id in (select grammar_id from user_story where user_id = :userId);", Grammar.class)
                     .setParameter("level", user.getLevel().name())
                     .setParameter("userId", id).getResultList();
         } catch (Exception e) {

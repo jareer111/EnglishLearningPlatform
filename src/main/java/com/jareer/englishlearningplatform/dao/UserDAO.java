@@ -11,22 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends BaseDAO<Users, Long> {
-    public List<Users> getPage(int page, int size) {
+    public List<Users> getPage(Integer userId, Integer page, Integer size) {
         List<Users> users = new ArrayList<>();
         TypedQuery<Users> query;
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            query = em.createQuery("from Users ", Users.class);
+            query = em.createQuery("from Users u where u.id!=:userId", Users.class)
+                    .setParameter("userId", userId);
             query.setFirstResult((page - 1) * size);
             query.setMaxResults(size);
             em.getTransaction().commit();
             users = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return users;
     }
 
     public boolean changeRole(Integer id, String path) {
-        int i;
+        int i = 0;
         try (EntityManager em = emf.createEntityManager()) {
             Roles role = null;
             switch (path) {
@@ -41,6 +44,8 @@ public class UserDAO extends BaseDAO<Users, Long> {
                     .setParameter("id", id)
                     .executeUpdate();
             em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return i > 0;
     }
@@ -51,12 +56,14 @@ public class UserDAO extends BaseDAO<Users, Long> {
         try (EntityManager em = emf.createEntityManager()) {
             query = em.createQuery("select u from Users u", Users.class);
             users = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return users;
     }
 
     public Users findByUsername(String username) {
-        try (EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             return em.createQuery("select u from Users u where u.username = :username", Users.class)
                     .setParameter("username", username)
                     .getSingleResult();
@@ -64,21 +71,6 @@ public class UserDAO extends BaseDAO<Users, Long> {
             return null;
         }
     }
-//    public void updateLastTestID(Integer userId, int i) {
-//        em.getTransaction().begin();
-//        Users user = findById(Long.valueOf(userId));
-//        user.setLastTestID(i);
-//        update(user);
-//        em.getTransaction().commit();
-//    }
-
-//    public void updateScore(Integer userId, int i) {
-//        em.getTransaction().begin();
-//        Users users = findById(Long.valueOf(userId));
-//        users.setScore(i);
-//        update(users);
-//        em.getTransaction().commit();
-//    }
 
     public void updateLastTestID(Integer userId, int i) {
         try (EntityManager em = emf.createEntityManager()) {
@@ -87,16 +79,20 @@ public class UserDAO extends BaseDAO<Users, Long> {
             user.setLastTestID(i);
             update(user);
             em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void updateScore(Integer userId, int i) {
-        try (EntityManager em = emf.createEntityManager()){
+        try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Users users = findById(Long.valueOf(userId));
             users.setScore(i);
             update(users);
             em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
