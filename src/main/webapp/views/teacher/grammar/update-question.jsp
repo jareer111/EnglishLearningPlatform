@@ -2,7 +2,7 @@
 <%@ page import="com.jareer.englishlearningplatform.domains.Variants" %>
 <%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
-  User: Admin
+  User: javohir
   Date: 2/15/2023
   Time: 9:49 PM
   To change this template use File | Settings | File Templates.
